@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gbreeze UG Arts | Youth Skilling & Community Empowerment Uganda</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brandBlack: '#000000',
+            brandSurface: '#0a0a0f',
+            brandCard: '#111118',
+            neonMint: '#10f5c0',
+            neonCyan: '#00f5d4',
+            neonPink: '#f291e6',
+            hotPink: '#ff75d8',
+          },
+          boxShadow: {
+            'mint-glow': '0 0 24px rgba(16, 245, 192, 0.22)',
+            'pink-glow': '0 0 24px rgba(242, 145, 230, 0.22)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brandBlack text-white font-sans antialiased selection:bg-neonMint selection:text-black overflow-x-hidden">
+
+  <!-- Ambient Neon Background Orbs (Pointer-events disabled) -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-neonMint/10 blur-[120px]"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 rounded-full bg-neonPink/10 blur-[130px]"></div>
+    <div class="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-neonCyan/5 blur-[110px]"></div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-40 bg-brandBlack/85 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo Wrapper -->
+        <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+          <div class="relative w-28 sm:w-32 h-14 rounded-xl overflow-hidden bg-black flex items-center justify-center border border-white/5 group-hover:border-neonMint/40 transition-colors">
+            <!-- Uploaded Logo 155226.jpg with custom SVG fallback matching exact GBRZE UG ARTS aesthetic -->
+            <img
+              src="155226.jpg"
+              alt="Gbreeze UG Arts Logo"
+              class="w-full h-full object-contain mix-blend-lighten scale-125"
+              onerror="this.style.display='none'; document.getElementById('nav-logo-fallback').classList.remove('hidden');"
+            />
+            <!-- Crisp Vector Fallback matching the uploaded logo -->
+            <div id="nav-logo-fallback" class="hidden flex flex-col items-center justify-center px-2 py-1 select-none">
+              <span class="font-display font-bold text-xl tracking-wider text-transparent" style="-webkit-text-stroke: 1.4px #10f5c0;">GBRZE</span>
+              <div class="flex items-center gap-1 -mt-1">
+                <svg class="w-8 h-3 text-neonPink" viewBox="0 0 40 14" fill="currentColor">
+                  <rect x="1" y="5" width="1.5" height="4" rx="0.75"/>
+                  <rect x="4" y="3" width="1.5" height="8" rx="0.75"/>
+                  <rect x="7" y="1" width="1.5" height="12" rx="0.75"/>
+                  <rect x="10" y="4" width="1.5" height="6" rx="0.75"/>
+                  <rect x="13" y="0" width="1.5" height="14" rx="0.75"/>
+                  <rect x="16" y="2" width="1.5" height="10" rx="0.75"/>
+                  <rect x="19" y="1" width="1.5" height="12" rx="0.75"/>
+                  <rect x="22" y="4" width="1.5" height="6" rx="0.75"/>
+                  <rect x="25" y="2" width="1.5" height="10" rx="0.75"/>
+                  <rect x="28" y="5" width="1.5" height="4" rx="0.75"/>
+                </svg>
+                <span class="font-display font-semibold text-[9px] tracking-widest text-neonPink">UG ARTS</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+          <a href="#about" class="hover:text-neonMint transition-colors">Our Mission</a>
+          <a href="#programs" class="hover:text-neonMint transition-colors">Skilling Programs</a>
+          <a href="#impact" class="hover:text-neonPink transition-colors">Community Impact</a>
+          <a href="#partner" class="hover:text-neonPink transition-colors">Partner With Us</a>
+          <a href="#apply" class="px-5 py-2.5 rounded-full bg-neonMint text-black font-semibold hover:bg-neonCyan shadow-mint-glow transition-all transform hover:-translate-y-0.5">
+            Apply Now
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Toggle Menu"
+          class="md:hidden p-3 rounded-xl bg-white/5 border border-white/10 text-zinc-200 hover:text-neonMint hover:border-neonMint/40 transition-colors"
+        >
+          <i class="fa-solid fa-bars text-lg" id="mobile-menu-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brandSurface/95 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 space-y-2">
+      <a href="#about" class="mobile-nav-link block px-4 py-3 rounded-xl text-zinc-200 hover:bg-white/5 hover:text-neonMint font-medium">Our Mission</a>
+      <a href="#programs" class="mobile-nav-link block px-4 py-3 rounded-xl text-zinc-200 hover:bg-white/5 hover:text-neonMint font-medium">Skilling Programs</a>
+      <a href="#impact" class="mobile-nav-link block px-4 py-3 rounded-xl text-zinc-200 hover:bg-white/5 hover:text-neonPink font-medium">Community Impact</a>
+      <a href="#partner" class="mobile-nav-link block px-4 py-3 rounded-xl text-zinc-200 hover:bg-white/5 hover:text-neonPink font-medium">Partner With Us</a>
+      <div class="pt-2">
+        <a href="#apply" class="mobile-nav-link block text-center w-full py-3.5 rounded-xl bg-neonMint text-black font-bold shadow-mint-glow">
+          Apply for Skilling
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <!-- 1. HERO SECTION -->
+    <section id="home" class="pt-14 pb-20 lg:pt-24 lg:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-neonMint/30 text-neonMint text-xs sm:text-sm font-medium">
+            <span class="w-2 h-2 rounded-full bg-neonMint animate-ping"></span>
+            <span>Grassroots Youth Empowerment • Uganda</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12]">
+            Empowering Youth Through <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonMint via-neonCyan to-neonPink">Practical Skills &amp; Creative Arts</span>
+          </h1>
+
+          <p class="text-zinc-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Gbreeze UG Arts equips young people and community members across Uganda with hands-on vocational training, creative media skills, and pathways to financial self-reliance.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#programs" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-neonMint text-black font-bold text-base hover:bg-neonCyan shadow-mint-glow transition-all flex items-center justify-center gap-2.5">
+              <span>Explore Skilling Programs</span>
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+            <a href="#partner" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white/5 border border-neonPink/40 text-white hover:bg-neonPink/10 hover:border-neonPink font-semibold text-base transition-all flex items-center justify-center gap-2.5">
+              <i class="fa-solid fa-handshake-angle text-neonPink"></i>
+              <span>Partner / Get Involved</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Showcase Visual Card -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-3xl bg-brandCard border border-white/10 p-6 sm:p-8 shadow-2xl overflow-hidden">
+            <!-- Top Glow Accent Line -->
+            <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-neonMint via-neonPink to-neonMint"></div>
+
+            <!-- Centered Brand Emblem Display -->
+            <div class="rounded-2xl bg-black border border-white/10 p-6 flex flex-col items-center justify-center mb-6 relative overflow-hidden">
+              <img
+                src="155226.jpg"
+                alt="Gbreeze UG Arts Brand Mark"
+                class="w-64 sm:w-72 h-auto object-contain mix-blend-lighten"
+                onerror="this.style.display='none'; document.getElementById('hero-logo-fallback').classList.remove('hidden');"
+              />
+              <!-- Vector Fallback if local file isn't mounted -->
+              <div id="hero-logo-fallback" class="hidden py-6 flex flex-col items-center">
+                <div class="font-display font-bold text-5xl sm:text-6xl tracking-wider text-transparent" style="-webkit-text-stroke: 2.2px #10f5c0; filter: drop-shadow(0 0 8px rgba(16,245,192,0.4));">
+                  GBRZE
+                </div>
+                <div class="flex items-center gap-3 mt-1">
+                  <!-- Animated Waveform Bars -->
+                  <div class="flex items-center gap-[2px] h-7">
+                    <span class="w-1 h-2 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-4 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-6 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-3 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-7 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-5 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-7 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-4 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-6 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-3 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-5 bg-neonPink rounded-full"></span>
+                    <span class="w-1 h-2 bg-neonPink rounded-full"></span>
+                  </div>
+                  <span class="font-display font-bold text-xl tracking-[0.2em] text-neonPink">UG ARTS</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Audio/Skill Pulse Strip -->
+            <div class="space-y-4">
+              <div class="flex items-center justify-between text-xs uppercase tracking-wider text-zinc-400">
+                <span>Active Community Tracks</span>
+                <span class="text-neonMint font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-neonMint"></span> Open Enrollment
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div class="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-neonMint/40 transition-colors">
+                  <i class="fa-solid fa-sliders text-neonMint text-lg mb-2"></i>
+                  <p class="font-display font-semibold text-sm text-white">Sound &amp; Media</p>
+                  <p class="text-xs text-zinc-400 mt-0.5">Studio &amp; Visual Arts</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-neonPink/40 transition-colors">
+                  <i class="fa-solid fa-wrench text-neonPink text-lg mb-2"></i>
+                  <p class="font-display font-semibold text-sm text-white">Technical Trades</p>
+                  <p class="text-xs text-zinc-400 mt-0.5">Hands-On Craftsmanship</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Impact Stats Strip -->
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="p-6 rounded-2xl bg-brandSurface border border-white/10 hover:border-neonMint/40 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-neonMint/10 text-neonMint flex items-center justify-center mb-4">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white">Hands-On Modules</h3>
+          <p class="text-sm text-zinc-400 mt-1">80% practical workshop time building real-world portfolios and tools.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-brandSurface border border-white/10 hover:border-neonPink/40 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-neonPink/10 text-neonPink flex items-center justify-center mb-4">
+            <i class="fa-solid fa-door-open"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white">Zero-Barrier Access</h3>
+          <p class="text-sm text-zinc-400 mt-1">Inclusive community workshops accessible regardless of academic background.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-brandSurface border border-white/10 hover:border-neonMint/40 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-neonMint/10 text-neonMint flex items-center justify-center mb-4">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white">Practical Mentorship</h3>
+          <p class="text-sm text-zinc-400 mt-1">Guided directly by practicing Ugandan creatives, engineers, and artisans.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-brandSurface border border-white/10 hover:border-neonPink/40 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-neonPink/10 text-neonPink flex items-center justify-center mb-4">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white">Creative &amp; Tech Tracks</h3>
+          <p class="text-sm text-zinc-400 mt-1">Dual focus on modern digital media and essential vocational trades.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ABOUT US & MISSION SECTION -->
+    <section id="about" class="py-20 bg-brandSurface border-y border-white/10 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Mission Story -->
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-neonPink font-display font-semibold text-sm uppercase tracking-widest">Who We Are</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold leading-tight">
+              Bridging Raw Talent &amp; <span class="text-neonMint">Sustainable Livelihoods</span>
+            </h2>
+            <p class="text-zinc-300 leading-relaxed text-base sm:text-lg">
+              Across Uganda, thousands of creative and determined young people have immense potential—yet lack access to studios, workshops, equipment, and structured mentorship.
+            </p>
+            <p class="text-zinc-400 leading-relaxed">
+              <strong class="text-white">Gbreeze UG Arts</strong> was founded as a grassroots community catalyst to change that reality. We combine modern creative arts—like sound engineering and graphic branding—with essential technical trades and business literacy so every learner graduates ready to earn, innovate, and uplift their neighborhood.
+            </p>
+
+            <div class="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex items-start gap-3">
+                <div class="mt-1 w-6 h-6 rounded-full bg-neonMint/15 text-neonMint flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-check text-xs"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white text-sm">Learn by Doing</h4>
+                  <p class="text-xs text-zinc-400 mt-0.5">Real studio consoles, real tools, real client projects.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="mt-1 w-6 h-6 rounded-full bg-neonPink/15 text-neonPink flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-check text-xs"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white text-sm">Community First</h4>
+                  <p class="text-xs text-zinc-400 mt-0.5">Peer-to-peer collaboration that builds lasting local networks.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillars Grid -->
+          <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="p-6 rounded-3xl bg-brandCard border border-white/10 space-y-3">
+              <div class="w-12 h-12 rounded-2xl bg-neonMint/10 border border-neonMint/30 text-neonMint flex items-center justify-center text-xl">
+                <i class="fa-solid fa-wave-square"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl">Creative Expression</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                Turning street-level musical and visual talent into professional, marketable production capabilities.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-3xl bg-brandCard border border-white/10 space-y-3 sm:translate-y-6">
+              <div class="w-12 h-12 rounded-2xl bg-neonPink/10 border border-neonPink/30 text-neonPink flex items-center justify-center text-xl">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl">Vocational Mastery</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                Equipping youth with dependable technical maintenance and electrical problem-solving skills in daily demand.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-3xl bg-brandCard border border-white/10 space-y-3">
+              <div class="w-12 h-12 rounded-2xl bg-neonPink/10 border border-neonPink/30 text-neonPink flex items-center justify-center text-xl">
+                <i class="fa-solid fa-seedling"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl">Financial Independence</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                Teaching pricing, savings, client communication, and micro-enterprise setup alongside every craft.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-3xl bg-brandCard border border-white/10 space-y-3 sm:translate-y-6">
+              <div class="w-12 h-12 rounded-2xl bg-neonMint/10 border border-neonMint/30 text-neonMint flex items-center justify-center text-xl">
+                <i class="fa-solid fa-people-arrows"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl">Peer Leadership</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                Graduates return as peer mentors, multiplying impact across schools and community centers in Uganda.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SKILLING & EMPOWERMENT PROGRAMS -->
+    <section id="programs" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="text-neonMint font-display font-semibold text-sm uppercase tracking-widest">Curriculum &amp; Tracks</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold">
+          Skilling &amp; Empowerment Programs
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg">
+          Explore our practical training tracks designed to transform passion into dependable income. Click any program to inspect its modules and apply.
+        </p>
+      </div>
+
+      <!-- Interactive Filter Bar -->
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3" role="tablist" aria-label="Program Categories">
+        <button data-filter="all" class="filter-btn active px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-neonMint text-black shadow-mint-glow">
+          All Programs
+        </button>
+        <button data-filter="creative" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white/5 text-zinc-300 border border-white/10 hover:border-neonPink/50 hover:text-white">
+          Creative Arts &amp; Media
+        </button>
+        <button data-filter="technical" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white/5 text-zinc-300 border border-white/10 hover:border-neonMint/50 hover:text-white">
+          Technical &amp; Vocational
+        </button>
+        <button data-filter="crafts" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white/5 text-zinc-300 border border-white/10 hover:border-neonPink/50 hover:text-white">
+          Fashion, Beauty &amp; Crafts
+        </button>
+        <button data-filter="hospitality" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white/5 text-zinc-300 border border-white/10 hover:border-neonMint/50 hover:text-white">
+          Driving &amp; Hospitality
+        </button>
+        <button data-filter="entrepreneurship" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white/5 text-zinc-300 border border-white/10 hover:border-neonPink/50 hover:text-white">
+          Entrepreneurship
+        </button>
+      </div>
+
+      <!-- Program Cards Grid (Populated via JS for clean modal integration) -->
+      <div id="programs-grid" class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Cards injected by JavaScript -->
+      </div>
+    </section>
+
+    <!-- 4. COMMUNITY IMPACT & INITIATIVES -->
+    <section id="impact" class="py-20 bg-brandSurface border-y border-white/10 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div class="space-y-3 max-w-2xl">
+            <span class="text-neonPink font-display font-semibold text-sm uppercase tracking-widest">Grassroots Action</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold">Community Impact &amp; Initiatives</h2>
+            <p class="text-zinc-400">
+              Beyond the training room, Gbreeze UG Arts takes skills directly to neighborhoods, youth groups, and community hubs across Uganda.
+            </p>
+          </div>
+          <a href="#apply" class="inline-flex items-center gap-2 text-neonMint font-semibold hover:underline">
+            <span>Join our next community drive</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Initiative 1 -->
+          <div class="rounded-3xl bg-brandCard border border-white/10 p-7 flex flex-col justify-between hover:border-neonMint/40 transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-3 py-1 rounded-full bg-neonMint/10 text-neonMint text-xs font-semibold">Mobile Outreach</span>
+                <i class="fa-solid fa-bullhorn text-zinc-500 text-lg"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-3">Zero-Cost Pop-Up Skilling Drives</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                Weekend intensive bootcamps hosted in local community halls where youth get hands-on introductions to sound gear, design tools, and electrical safety at zero cost.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-zinc-400">
+              <span><i class="fa-solid fa-location-dot text-neonMint mr-1.5"></i>Local Wards &amp; Youth Hubs</span>
+              <span class="text-white font-medium">Monthly</span>
+            </div>
+          </div>
+
+          <!-- Initiative 2 -->
+          <div class="rounded-3xl bg-brandCard border border-white/10 p-7 flex flex-col justify-between hover:border-neonPink/40 transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-3 py-1 rounded-full bg-neonPink/10 text-neonPink text-xs font-semibold">Creative Showcase</span>
+                <i class="fa-solid fa-microphone-lines text-zinc-500 text-lg"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-3">Gbreeze Sound &amp; Talent Cyphers</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                Community showcase stages engineered and branded entirely by our trainees—giving local artists a platform while trainees run live sound, photography, and event logistics.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-zinc-400">
+              <span><i class="fa-solid fa-music text-neonPink mr-1.5"></i>Live Production</span>
+              <span class="text-white font-medium">Quarterly</span>
+            </div>
+          </div>
+
+          <!-- Initiative 3 -->
+          <div class="rounded-3xl bg-brandCard border border-white/10 p-7 flex flex-col justify-between hover:border-neonMint/40 transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-3 py-1 rounded-full bg-neonMint/10 text-neonMint text-xs font-semibold">Civic Service</span>
+                <i class="fa-solid fa-bolt text-zinc-500 text-lg"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-3">Community Repair &amp; Media Lab</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                Supervised apprentice teams assist local small businesses, schools, and community centers with basic electrical repairs, equipment maintenance, and promotional graphics.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-zinc-400">
+              <span><i class="fa-solid fa-hands-holding-circle text-neonMint mr-1.5"></i>Applied Practice</span>
+              <span class="text-white font-medium">Ongoing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SUPPORT & PARTNER WITH US SECTION -->
+    <section id="partner" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="rounded-3xl bg-gradient-to-br from-brandCard via-brandSurface to-brandCard border border-white/15 p-8 sm:p-12 relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-72 h-72 rounded-full bg-neonPink/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-neonMint/10 blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7 space-y-5">
+            <span class="inline-block px-3.5 py-1 rounded-full bg-neonPink/15 border border-neonPink/30 text-neonPink text-xs font-semibold uppercase tracking-wider">
+              Collaborate &amp; Invest in Youth
+            </span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold">
+              Support &amp; Partner With <span class="text-neonMint">Gbreeze UG Arts</span>
+            </h2>
+            <p class="text-zinc-300 leading-relaxed">
+              Sustainable community transformation happens when local leaders, sponsors, equipment donors, and industry mentors stand together. Help us expand studio access, toolkits, and scholarships for Ugandan youth.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div class="p-4 rounded-2xl bg-black/50 border border-white/10">
+                <i class="fa-solid fa-toolbox text-neonMint text-lg mb-2"></i>
+                <h4 class="font-display font-semibold text-sm">Donate Gear &amp; Tools</h4>
+                <p class="text-xs text-zinc-400 mt-1">Audio interfaces, laptops, multimeters, or hand tools.</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-black/50 border border-white/10">
+                <i class="fa-solid fa-hand-holding-heart text-neonPink text-lg mb-2"></i>
+                <h4 class="font-display font-semibold text-sm">Sponsor a Trainee</h4>
+                <p class="text-xs text-zinc-400 mt-1">Fund training materials and starter kits for an apprentice.</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-black/50 border border-white/10">
+                <i class="fa-solid fa-chalkboard-user text-neonMint text-lg mb-2"></i>
+                <h4 class="font-display font-semibold text-sm">Mentor &amp; Hire</h4>
+                <p class="text-xs text-zinc-400 mt-1">Host guest masterclasses or offer internships to graduates.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-black/60 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-5">
+            <h3 class="font-display text-xl font-bold">Ready to Make an Impact?</h3>
+            <p class="text-sm text-zinc-400">
+              Whether you represent an NGO, local business, creative studio, or want to volunteer your expertise, we'd love to build with you.
+            </p>
+            <button
+              type="button"
+              onclick="selectFormMode('partner')"
+              class="w-full py-4 px-6 rounded-xl bg-neonPink text-black font-bold hover:bg-hotPink shadow-pink-glow transition-all flex items-center justify-center gap-2"
+            >
+              <span>Become a Partner or Mentor</span>
+              <i class="fa-solid fa-arrow-down"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. INTERACTIVE APPLICATION & CONTACT SECTION -->
+    <section id="apply" class="py-20 bg-brandSurface border-t border-white/10 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <!-- Contact Info Column -->
+          <div class="lg:col-span-5 space-y-8">
+            <div class="space-y-4">
+              <span class="text-neonMint font-display font-semibold text-sm uppercase tracking-widest">Get Started</span>
+              <h2 class="font-display text-3xl sm:text-4xl font-bold">Apply or Connect With Our Team</h2>
+              <p class="text-zinc-400 leading-relaxed">
+                Register your interest for our upcoming skilling cohort or send a partnership inquiry. Our team responds within 48 hours.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-brandCard border border-white/10">
+                <div class="w-11 h-11 rounded-xl bg-neonMint/10 text-neonMint flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-location-dot text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white">Location</h4>
+                  <p class="text-sm text-zinc-400 mt-0.5">Kampala &amp; Community Outreach Hubs, Uganda</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-brandCard border border-white/10">
+                <div class="w-11 h-11 rounded-xl bg-neonPink/10 text-neonPink flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-envelope text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white">Direct Email</h4>
+                  <p class="text-sm text-zinc-400 mt-0.5">info@gbreezeugarts.org</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-brandCard border border-white/10">
+                <div class="w-11 h-11 rounded-xl bg-neonMint/10 text-neonMint flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-phone text-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white">Community Desk</h4>
+                  <p class="text-sm text-zinc-400 mt-0.5">+256 700 000 000 (Mon – Sat, 9:00 AM – 6:00 PM EAT)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div>
+              <p class="text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-3">Follow Our Community</p>
+              <div class="flex items-center gap-3">
+                <a href="#apply" aria-label="Instagram" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 hover:border-neonPink hover:text-neonPink flex items-center justify-center transition-colors">
+                  <i class="fa-brands fa-instagram text-lg"></i>
+                </a>
+                <a href="#apply" aria-label="YouTube" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 hover:border-neonMint hover:text-neonMint flex items-center justify-center transition-colors">
+                  <i class="fa-brands fa-youtube text-lg"></i>
+                </a>
+                <a href="#apply" aria-label="TikTok" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 hover:border-neonPink hover:text-neonPink flex items-center justify-center transition-colors">
+                  <i class="fa-brands fa-tiktok text-lg"></i>
+                </a>
+                <a href="#apply" aria-label="WhatsApp" class="w-11 h-11 rounded-xl bg-white/5 border border-white/10 hover:border-neonMint hover:text-neonMint flex items-center justify-center transition-colors">
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Form Column -->
+          <div class="lg:col-span-7">
+            <div class="rounded-3xl bg-brandCard border border-white/10 p-6 sm:p-10 shadow-2xl">
+              <!-- Form Mode Switcher -->
+              <div class="grid grid-cols-2 gap-2 p-1.5 rounded-2xl bg-black border border-white/10 mb-8">
+                <button
+                  type="button"
+                  id="tab-trainee"
+                  onclick="selectFormMode('trainee')"
+                  class="py-3 px-4 rounded-xl text-sm font-bold transition-all bg-neonMint text-black"
+                >
+                  Apply as a Trainee
+                </button>
+                <button
+                  type="button"
+                  id="tab-partner"
+                  onclick="selectFormMode('partner')"
+                  class="py-3 px-4 rounded-xl text-sm font-bold transition-all text-zinc-400 hover:text-white"
+                >
+                  Partner / Volunteer
+                </button>
+              </div>
+
+              <!-- Application Form -->
+              <form id="engagement-form" class="space-y-5">
+                <input type="hidden" id="form-type" name="formType" value="trainee" />
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="fullName" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Full Name *</label>
+                    <input
+                      type="text"
+                      id="fullName"
+                      required
+                      placeholder="e.g., Kato Brian"
+                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white placeholder-zinc-600 focus:outline-none focus:border-neonMint transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Phone / WhatsApp *</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      required
+                      placeholder="+256 7XX XXX XXX"
+                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white placeholder-zinc-600 focus:outline-none focus:border-neonMint transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="location" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">District / Neighborhood *</label>
+                    <input
+                      type="text"
+                      id="location"
+                      required
+                      placeholder="e.g., Makindye, Kampala"
+                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white placeholder-zinc-600 focus:outline-none focus:border-neonMint transition-colors"
+                    />
+                  </div>
+
+                  <!-- Dynamic Select Field -->
+                  <div id="track-select-wrapper">
+                    <label for="programSelect" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Preferred Skilling Track *</label>
+                    <select
+                      id="programSelect"
+                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white focus:outline-none focus:border-neonMint transition-colors"
+                    >
+                      <option value="Digital Music Production & Sound Engineering">Digital Music Production &amp; Sound Engineering</option>
+                      <option value="Graphic Design, Branding & Digital Media">Graphic Design, Branding &amp; Digital Media</option>
+                      <option value="Practical Vocational & Technical Trades">Practical Vocational &amp; Technical Trades</option>
+                      <option value="Driving & Road Safety Training">Driving &amp; Road Safety Training</option>
+                      <option value="Shoe Making & Leather Craft">Shoe Making &amp; Leather Craft</option>
+                      <option value="Soap Making & Household Products">Soap Making &amp; Household Products</option>
+                      <option value="Tailoring, Garment Making & Fashion">Tailoring, Garment Making &amp; Fashion</option>
+                      <option value="Catering, Baking & Event Food Service">Catering, Baking &amp; Event Food Service</option>
+                      <option value="Hair Dressing, Braiding & Beauty Care">Hair Dressing, Braiding &amp; Beauty Care</option>
+                      <option value="Youth Entrepreneurship & Financial Self-Reliance">Youth Entrepreneurship &amp; Financial Self-Reliance</option>
+                    </select>
+                  </div>
+
+                  <div id="partner-select-wrapper" class="hidden">
+                    <label for="partnerRole" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">How Would You Like to Help? *</label>
+                    <select
+                      id="partnerRole"
+                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white focus:outline-none focus:border-neonPink transition-colors"
+                    >
+                      <option value="Sponsor / Financial Donor">Sponsor / Financial Donor</option>
+                      <option value="Equipment & Toolkit Donor">Equipment &amp; Toolkit Donor</option>
+                      <option value="Skills Mentor / Guest Instructor">Skills Mentor / Guest Instructor</option>
+                      <option value="Community Organization / Local Leader">Community Organization / Local Leader</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="message" id="message-label" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
+                    Tell Us About Your Goals &amp; Interest *
+                  </label>
+                  <textarea
+                    id="message"
+                    rows="4"
+                    required
+                    placeholder="Share what motivates you to learn this skill or what you hope to build..."
+                    class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white placeholder-zinc-600 focus:outline-none focus:border-neonMint transition-colors"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  id="submit-btn"
+                  class="w-full py-4 rounded-xl bg-neonMint text-black font-bold text-base hover:bg-neonCyan shadow-mint-glow transition-all flex items-center justify-center gap-2"
+                >
+                  <span>Submit Application</span>
+                  <i class="fa-solid fa-paper-plane text-sm"></i>
+                </button>
+              </form>
+
+              <!-- Instant Confirmation Message Box -->
+              <div id="form-confirmation" class="hidden text-center py-8 space-y-4">
+                <div class="w-16 h-16 rounded-full bg-neonMint/15 border border-neonMint text-neonMint flex items-center justify-center mx-auto text-2xl">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-white" id="confirm-title">Application Received!</h3>
+                <p class="text-zinc-300 text-sm max-w-md mx-auto leading-relaxed" id="confirm-body">
+                  Thank you for connecting with Gbreeze UG Arts. Our community coordinator will reach out via WhatsApp or phone shortly.
+                </p>
+                <div class="pt-3">
+                  <button
+                    type="button"
+                    onclick="resetEngagementForm()"
+                    class="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-sm font-semibold text-white transition-colors"
+                  >
+                    Submit Another Response
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brandBlack border-t border-white/10 py-14 px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+      <!-- Footer Logo -->
+      <div class="flex flex-col items-center md:items-start gap-3">
+        <div class="w-36 h-16 rounded-xl bg-black flex items-center justify-center overflow-hidden">
+          <img
+            src="155226.jpg"
+            alt="Gbreeze UG Arts"
+            class="w-full h-full object-contain mix-blend-lighten scale-125"
+            onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').classList.remove('hidden');"
+          />
+          <div id="footer-logo-fallback" class="hidden flex flex-col items-center">
+            <span class="font-display font-bold text-2xl tracking-wider text-transparent" style="-webkit-text-stroke: 1.5px #10f5c0;">GBRZE</span>
+            <span class="font-display font-semibold text-[10px] tracking-[0.22em] text-neonPink -mt-1">UG ARTS</span>
+          </div>
+        </div>
+        <p class="text-xs text-zinc-500 text-center md:text-left max-w-xs">
+          Skilling youth, nurturing creative voices, and building self-reliant communities across Uganda.
+        </p>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-zinc-400">
+        <a href="#home" class="hover:text-neonMint transition-colors">Home</a>
+        <a href="#about" class="hover:text-neonMint transition-colors">Mission</a>
+        <a href="#programs" class="hover:text-neonMint transition-colors">Programs</a>
+        <a href="#impact" class="hover:text-neonPink transition-colors">Impact</a>
+        <a href="#partner" class="hover:text-neonPink transition-colors">Partner</a>
+        <a href="#apply" class="hover:text-neonMint transition-colors">Apply</a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-xs text-zinc-500 text-center md:text-right">
+        <p>&copy; <span id="current-year">2026</span> Gbreeze UG Arts. All rights reserved.</p>
+        <p class="mt-1 text-zinc-600">Community Empowerment Initiative • Uganda</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CURRICULUM & APPLY MODAL -->
+  <div
+    id="program-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <div class="relative w-full max-w-2xl rounded-3xl bg-brandCard border border-white/15 p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <!-- Close Button -->
+      <button
+        type="button"
+        id="close-modal-btn"
+        aria-label="Close Curriculum Modal"
+        class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 text-zinc-300 hover:text-white flex items-center justify-center transition-colors"
+      >
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <!-- Modal Badge -->
+      <span id="modal-category" class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
+        Category
+      </span>
+
+      <h3 id="modal-title" class="font-display text-2xl sm:text-3xl font-bold text-white pr-8">
+        Program Title
+      </h3>
+
+      <p id="modal-description" class="text-zinc-300 text-sm sm:text-base mt-3 leading-relaxed">
+        Program overview description.
+      </p>
+
+      <!-- Key Metadata Pills -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-6">
+        <div class="p-3 rounded-xl bg-black/60 border border-white/10">
+          <p class="text-[11px] uppercase text-zinc-500">Duration</p>
+          <p id="modal-duration" class="font-display font-semibold text-sm text-white mt-0.5">12 Weeks</p>
+        </div>
+        <div class="p-3 rounded-xl bg-black/60 border border-white/10">
+          <p class="text-[11px] uppercase text-zinc-500">Format</p>
+          <p id="modal-format" class="font-display font-semibold text-sm text-white mt-0.5">80% Practical Lab</p>
+        </div>
+        <div class="p-3 rounded-xl bg-black/60 border border-white/10 col-span-2 sm:col-span-1">
+          <p class="text-[11px] uppercase text-zinc-500">Outcome</p>
+          <p id="modal-outcome" class="font-display font-semibold text-sm text-neonMint mt-0.5">Portfolio &amp; Kit</p>
+        </div>
+      </div>
+
+      <!-- Curriculum Modules List -->
+      <div class="space-y-3">
+        <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-zinc-400">What You Will Learn</h4>
+        <ul id="modal-modules" class="space-y-2.5">
+          <!-- Populated dynamically -->
+        </ul>
+      </div>
+
+      <!-- Modal Footer Actions -->
+      <div class="mt-8 pt-5 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+        <button
+          type="button"
+          id="modal-apply-btn"
+          class="flex-1 py-3.5 px-6 rounded-xl bg-neonMint text-black font-bold hover:bg-neonCyan shadow-mint-glow transition-all flex items-center justify-center gap-2"
+        >
+          <span>Apply for This Track</span>
+          <i class="fa-solid fa-arrow-right text-sm"></i>
+        </button>
+        <button
+          type="button"
+          onclick="closeProgramModal()"
+          class="py-3.5 px-6 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-300 font-semibold transition-colors"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Program Dataset
+    const programsData = [
+      {
+        id: 'music-prod',
+        category: 'creative',
+        categoryLabel: 'Creative Arts & Media',
+        accent: 'mint',
+        icon: 'fa-sliders',
+        title: 'Digital Music Production & Sound Engineering',
+        summary: 'Master modern DAW beat production, vocal recording, audio mixing, and live PA sound setup for events and studios.',
+        duration: '12 Weeks • Hands-On',
+        format: 'Studio & Live Stage',
+        outcome: 'Demo Reel & Certification',
+        highlights: ['Beat Production & Arrangement', 'Vocal Recording & Mixing', 'Live Sound Reinforcement'],
+        modules: [
+          'Digital Audio Workstation (DAW) fundamentals, beat making & Afrobeat/urban rhythm programming',
+          'Microphone placement, acoustic treatment basics, and clean vocal tracking',
+          'EQ, compression, reverb, and mastering workflows for streaming-ready audio',
+          'Live PA system setup, mixer routing, and troubleshooting for community events'
+        ]
+      },
+      {
+        id: 'graphic-design',
+        category: 'creative',
+        categoryLabel: 'Creative Arts & Media',
+        accent: 'pink',
+        icon: 'fa-pen-nib',
+        title: 'Graphic Design, Branding & Digital Media',
+        summary: 'Build eye-catching event flyers, business brand identities, social media campaigns, and multimedia stories.',
+        duration: '10 Weeks • Hands-On',
+        format: 'Design Lab & Client Briefs',
+        outcome: 'Commercial Design Portfolio',
+        highlights: ['Poster & Flyer Design', 'Logo & Brand Identity', 'Digital Content Creation'],
+        modules: [
+          'Typography, color theory, and layout composition for high-impact posters and flyers',
+          'Logo design, brand style guides, and packaging mockups for local Ugandan businesses',
+          'Social media visual storytelling, short-form video editing, and promo reels',
+          'Print-ready file preparation and pricing freelance design packages'
+        ]
+      },
+      {
+        id: 'technical-trades',
+        category: 'technical',
+        categoryLabel: 'Technical & Vocational',
+        accent: 'mint',
+        icon: 'fa-screwdriver-wrench',
+        title: 'Practical Vocational & Technical Trades',
+        summary: 'Gain in-demand, practical maintenance skills in domestic electrical installations, appliance repair, and mechanical troubleshooting.',
+        duration: '14 Weeks • Workshop',
+        format: '85% Bench & Field Practice',
+        outcome: 'Field Apprenticeship',
+        highlights: ['Basic Electrical Wiring', 'Mechanical Maintenance', 'Diagnostics & Safety'],
+        modules: [
+          'Electrical safety standards, circuit testing with multimeters, and domestic wiring basics',
+          'Small engine, generator, and everyday mechanical equipment inspection & servicing',
+          'Fault diagnostics, soldering, cable termination, and preventative maintenance',
+          'Real-world supervised community repair projects and workshop tool management'
+        ]
+      },
+      {
+        id: 'driving',
+        category: 'hospitality',
+        categoryLabel: 'Driving & Road Safety',
+        accent: 'mint',
+        icon: 'fa-car',
+        title: 'Driving & Road Safety Training',
+        summary: 'Build confident, defensive driving skills, highway code mastery, and basic vehicle checks for logistics, transport, and delivery roles.',
+        duration: '8 Weeks • Practical',
+        format: 'Yard & Road Drills',
+        outcome: 'Permit Readiness & Road Skills',
+        highlights: ['Defensive Driving', 'Highway Code & Signs', 'Basic Vehicle Checks'],
+        modules: [
+          'Vehicle controls, clutch/gear coordination, steering precision, and smooth braking',
+          'Defensive driving techniques, hazard perception, and night/wet-weather road awareness',
+          'Uganda road signs, right-of-way rules, and highway code readiness',
+          'Pre-trip safety checks: tire pressure, fluid levels, lights, and routine servicing basics'
+        ]
+      },
+      {
+        id: 'shoe-making',
+        category: 'crafts',
+        categoryLabel: 'Fashion, Beauty & Crafts',
+        accent: 'pink',
+        icon: 'fa-shoe-prints',
+        title: 'Shoe Making & Leather Craft',
+        summary: 'Learn pattern cutting, stitching, sole bonding, and finishing for durable sandals, leather shoes, bags, and accessories.',
+        duration: '10 Weeks • Workshop',
+        format: 'Cobbler & Craft Bench',
+        outcome: 'Custom Footwear Line',
+        highlights: ['Sandals & Leather Shoes', 'Pattern Cutting & Stitching', 'Sole Bonding & Repair'],
+        modules: [
+          'Foot measurement, last selection, and cutting accurate upper & sole patterns',
+          'Working with leather, synthetic uppers, adhesives, and heavy-duty stitching techniques',
+          'Sole attachment, edging, polishing, and restoring worn footwear for local clients',
+          'Crafting complementary leather belts, pouches, and bags to boost product variety'
+        ]
+      },
+      {
+        id: 'soap-making',
+        category: 'crafts',
+        categoryLabel: 'Fashion, Beauty & Crafts',
+        accent: 'mint',
+        icon: 'fa-soap',
+        title: 'Soap Making & Household Products',
+        summary: 'Produce affordable, high-demand bar soaps, liquid laundry soap, dishwashing paste, and sanitizers using safe practical formulations.',
+        duration: '6 Weeks • Lab',
+        format: 'Batch Formulation Lab',
+        outcome: 'Starter Batch & Costing',
+        highlights: ['Bar & Liquid Soaps', 'Dish & Laundry Cleaners', 'Safe Batch Costing'],
+        modules: [
+          'Chemical safety, protective gear, and accurate measurement for soap and detergent batches',
+          'Making multi-purpose liquid soap, bar soap, dishwashing liquid, and multipurpose cleaners',
+          'Scenting, color balancing, curing, and hygienic packaging for market sale',
+          'Calculating raw material costs, batch yields, and profitable local pricing'
+        ]
+      },
+      {
+        id: 'tailoring',
+        category: 'crafts',
+        categoryLabel: 'Fashion, Beauty & Crafts',
+        accent: 'pink',
+        icon: 'fa-scissors',
+        title: 'Tailoring, Garment Making & Fashion',
+        summary: 'Master accurate body measurements, pattern drafting, sewing machine operation, and garment finishing for everyday and custom wear.',
+        duration: '16 Weeks • Studio',
+        format: 'Sewing & Pattern Studio',
+        outcome: 'Garment Portfolio',
+        highlights: ['Taking Measurements', 'Sewing Machine Mastery', 'Shirts, Dresses & Repairs'],
+        modules: [
+          'Accurate body measurements, fabric selection, and layout cutting with minimal waste',
+          'Industrial and domestic sewing machine operation, tension control, and stitch types',
+          'Constructing shirts, trousers, dresses, school/work uniforms, and clean alterations',
+          'Finishing details—zippers, hems, buttonholes, and pressing for neat presentation'
+        ]
+      },
+      {
+        id: 'catering',
+        category: 'hospitality',
+        categoryLabel: 'Driving & Hospitality',
+        accent: 'mint',
+        icon: 'fa-utensils',
+        title: 'Catering, Baking & Event Food Service',
+        summary: 'Develop hygienic food preparation, local and continental cookery, baking basics, and event catering service for ceremonies and offices.',
+        duration: '10 Weeks • Kitchen',
+        format: 'Practical Kitchen & Events',
+        outcome: 'Menu & Catering Readiness',
+        highlights: ['Food Hygiene & Prep', 'Local & Event Cooking', 'Baking & Buffet Service'],
+        modules: [
+          'Kitchen hygiene, food safety, ingredient prep, and portion control for group orders',
+          'Preparing popular Ugandan dishes, accompaniments, snacks, and event platters',
+          'Foundational baking—breads, buns, cakes, and pastries for shops and celebrations',
+          'Event catering logistics, buffet setup, service etiquette, and order budgeting'
+        ]
+      },
+      {
+        id: 'hair-dressing',
+        category: 'crafts',
+        categoryLabel: 'Fashion, Beauty & Crafts',
+        accent: 'pink',
+        icon: 'fa-wand-magic-sparkles',
+        title: 'Hair Dressing, Braiding & Beauty Care',
+        summary: 'Build salon-ready skills in braiding, weaving, natural hair care, styling, and client hygiene to launch chair rentals or mobile services.',
+        duration: '12 Weeks • Salon Lab',
+        format: 'Hands-On Styling Practice',
+        outcome: 'Salon Skills & Client Kit',
+        highlights: ['Braiding & Weaving', 'Natural Hair Care', 'Salon Hygiene & Styling'],
+        modules: [
+          'Scalp health, washing, conditioning, and protective styling for natural hair',
+          'Neat braiding patterns, extensions, weaving, and finishing techniques',
+          'Blow-drying, trimming, styling, and tailoring looks to client face shapes and occasions',
+          'Salon sanitation, tool care, appointment booking, and building repeat clientele'
+        ]
+      },
+      {
+        id: 'entrepreneurship',
+        category: 'entrepreneurship',
+        categoryLabel: 'Entrepreneurship',
+        accent: 'pink',
+        icon: 'fa-chart-line',
+        title: 'Youth Entrepreneurship & Financial Self-Reliance',
+        summary: 'Turn your creative or technical skill into a sustainable micro-enterprise with practical pricing, savings, and leadership training.',
+        duration: '8 Weeks • Bootcamp',
+        format: 'Interactive Clinics',
+        outcome: 'Launch-Ready Action Plan',
+        highlights: ['Pricing & Bookkeeping', 'Client Acquisition', 'Community Leadership'],
+        modules: [
+          'Service packaging, fair pricing strategies, and separating business vs. personal cashflow',
+          'Mobile money bookkeeping, savings discipline, and micro-capital planning',
+          'Pitching local clients, building trust, and managing customer relationships',
+          'Peer mentorship and leading grassroots youth initiatives in your community'
+        ]
+      }
+    ];
+
+    const programsGrid = document.getElementById('programs-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    let activeProgramTitle = '';
+
+    // Render Program Cards
+    function renderPrograms(filter = 'all') {
+      programsGrid.innerHTML = '';
+      const filtered = filter === 'all'
+        ? programsData
+        : programsData.filter(item => item.category === filter);
+
+      filtered.forEach(prog => {
+        const isMint = prog.accent === 'mint';
+        const badgeClass = isMint
+          ? 'bg-neonMint/10 text-neonMint border-neonMint/30'
+          : 'bg-neonPink/10 text-neonPink border-neonPink/30';
+        const iconBg = isMint ? 'bg-neonMint/10 text-neonMint' : 'bg-neonPink/10 text-neonPink';
+        const hoverBorder = isMint ? 'hover:border-neonMint/50' : 'hover:border-neonPink/50';
+        const btnStyle = isMint
+          ? 'bg-neonMint/10 text-neonMint hover:bg-neonMint hover:text-black border border-neonMint/30'
+          : 'bg-neonPink/10 text-neonPink hover:bg-neonPink hover:text-black border border-neonPink/30';
+
+        const card = document.createElement('article');
+        card.className = `rounded-3xl bg-brandCard border border-white/10 ${hoverBorder} p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-lg`;
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-6">
+              <span class="px-3.5 py-1 rounded-full border text-xs font-semibold ${badgeClass}">
+                ${prog.categoryLabel}
+              </span>
+              <div class="w-11 h-11 rounded-2xl ${iconBg} flex items-center justify-center text-lg">
+                <i class="fa-solid ${prog.icon}"></i>
+              </div>
+            </div>
+
+            <h3 class="font-display text-2xl font-bold text-white mb-3">
+              ${prog.title}
+            </h3>
+
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">
+              ${prog.summary}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-7">
+              ${prog.highlights.map(tag => `
+                <span class="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-xs text-zinc-300">
+                  ${tag}
+                </span>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="pt-5 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <span class="text-xs text-zinc-400 font-medium">
+              <i class="fa-regular fa-clock mr-1.5 ${isMint ? 'text-neonMint' : 'text-neonPink'}"></i>${prog.duration}
+            </span>
+            <button
+              type="button"
+              onclick="openProgramModal('${prog.id}')"
+              class="px-5 py-3 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 ${btnStyle}"
+            >
+              <span>View Curriculum / Apply</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </button>
+          </div>
+        `;
+
+        programsGrid.appendChild(card);
+      });
+    }
+
+    // Filter Button Handlers
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.className = 'filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white/5 text-zinc-300 border border-white/10 hover:border-neonMint/50 hover:text-white';
+        });
+        btn.className = 'filter-btn active px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-neonMint text-black shadow-mint-glow';
+        renderPrograms(btn.dataset.filter);
+      });
+    });
+
+    // Modal Controls
+    const modal = document.getElementById('program-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const modalApplyBtn = document.getElementById('modal-apply-btn');
+
+    function openProgramModal(programId) {
+      const prog = programsData.find(p => p.id === programId);
+      if (!prog) return;
+
+      activeProgramTitle = prog.title;
+      const isMint = prog.accent === 'mint';
+
+      const catBadge = document.getElementById('modal-category');
+      catBadge.textContent = prog.categoryLabel;
+      catBadge.className = isMint
+        ? 'inline-block px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3 bg-neonMint/15 text-neonMint border border-neonMint/30'
+        : 'inline-block px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3 bg-neonPink/15 text-neonPink border border-neonPink/30';
+
+      document.getElementById('modal-title').textContent = prog.title;
+      document.getElementById('modal-description').textContent = prog.summary;
+      document.getElementById('modal-duration').textContent = prog.duration;
+      document.getElementById('modal-format').textContent = prog.format;
+      document.getElementById('modal-outcome').textContent = prog.outcome;
+
+      const modulesList = document.getElementById('modal-modules');
+      modulesList.innerHTML = prog.modules.map(mod => `
+        <li class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-zinc-200">
+          <i class="fa-solid fa-circle-check mt-0.5 ${isMint ? 'text-neonMint' : 'text-neonPink'}"></i>
+          <span>${mod}</span>
+        </li>
+      `).join('');
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProgramModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    closeModalBtn.addEventListener('click', closeProgramModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeProgramModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeProgramModal();
+      }
+    });
+
+    modalApplyBtn.addEventListener('click', () => {
+      closeProgramModal();
+      selectFormMode('trainee');
+      const selectEl = document.getElementById('programSelect');
+      if (activeProgramTitle) {
+        selectEl.value = activeProgramTitle;
+      }
+      document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Form Mode Switcher (Trainee vs Partner)
+    function selectFormMode(mode) {
+      const formTypeInput = document.getElementById('form-type');
+      const tabTrainee = document.getElementById('tab-trainee');
+      const tabPartner = document.getElementById('tab-partner');
+      const trackWrapper = document.getElementById('track-select-wrapper');
+      const partnerWrapper = document.getElementById('partner-select-wrapper');
+      const messageLabel = document.getElementById('message-label');
+      const messageInput = document.getElementById('message');
+      const submitBtn = document.getElementById('submit-btn');
+
+      resetEngagementForm();
+      formTypeInput.value = mode;
+
+      if (mode === 'trainee') {
+        tabTrainee.className = 'py-3 px-4 rounded-xl text-sm font-bold transition-all bg-neonMint text-black';
+        tabPartner.className = 'py-3 px-4 rounded-xl text-sm font-bold transition-all text-zinc-400 hover:text-white';
+        trackWrapper.classList.remove('hidden');
+        partnerWrapper.classList.add('hidden');
+        messageLabel.textContent = 'Tell Us About Your Goals & Interest *';
+        messageInput.placeholder = 'Share what motivates you to learn this skill or what you hope to build...';
+        submitBtn.className = 'w-full py-4 rounded-xl bg-neonMint text-black font-bold text-base hover:bg-neonCyan shadow-mint-glow transition-all flex items-center justify-center gap-2';
+        submitBtn.innerHTML = '<span>Submit Trainee Application</span><i class="fa-solid fa-paper-plane text-sm"></i>';
+      } else {
+        tabPartner.className = 'py-3 px-4 rounded-xl text-sm font-bold transition-all bg-neonPink text-black';
+        tabTrainee.className = 'py-3 px-4 rounded-xl text-sm font-bold transition-all text-zinc-400 hover:text-white';
+        partnerWrapper.classList.remove('hidden');
+        trackWrapper.classList.add('hidden');
+        messageLabel.textContent = 'Partnership or Support Details *';
+        messageInput.placeholder = 'Tell us about your organization, equipment support, or mentorship ideas...';
+        submitBtn.className = 'w-full py-4 rounded-xl bg-neonPink text-black font-bold text-base hover:bg-hotPink shadow-pink-glow transition-all flex items-center justify-center gap-2';
+        submitBtn.innerHTML = '<span>Send Partnership Inquiry</span><i class="fa-solid fa-handshake text-sm"></i>';
+        document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Form Submission Handling
+    const engagementForm = document.getElementById('engagement-form');
+    const formConfirmation = document.getElementById('form-confirmation');
+
+    engagementForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const mode = document.getElementById('form-type').value;
+      const name = document.getElementById('fullName').value.trim();
+      const selectedOption = mode === 'trainee'
+        ? document.getElementById('programSelect').value
+        : document.getElementById('partnerRole').value;
+
+      document.getElementById('confirm-title').textContent = mode === 'trainee'
+        ? `You're Registered, ${name}!`
+        : `Thank You, ${name}!`;
+
+      document.getElementById('confirm-body').textContent = mode === 'trainee'
+        ? `We have logged your interest in "${selectedOption}". Our Gbreeze UG Arts coordinator will contact you via phone/WhatsApp with orientation dates.`
+        : `Your inquiry regarding "${selectedOption}" has been received by the Gbreeze UG Arts leadership team. We look forward to collaborating with you.`;
+
+      engagementForm.classList.add('hidden');
+      formConfirmation.classList.remove('hidden');
+    });
+
+    function resetEngagementForm() {
+      engagementForm.reset();
+      engagementForm.classList.remove('hidden');
+      formConfirmation.classList.add('hidden');
+    }
+
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      mobileMenuIcon.className = isHidden ? 'fa-solid fa-bars text-lg' : 'fa-solid fa-xmark text-lg';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuIcon.className = 'fa-solid fa-bars text-lg';
+      });
+    });
+
+    // Initialize on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPrograms('all');
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
