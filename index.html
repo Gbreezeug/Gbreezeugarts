@@ -600,100 +600,93 @@
               </div>
 
               <!-- Application Form -->
-              <form id="engagement-form" class="space-y-5">
-                <input type="hidden" id="form-type" name="formType" value="trainee" />
+              <!-- Embedded Google Forms with Trainee / Partner Switcher -->
+<div class="space-y-4">
+  <!-- Switcher Buttons -->
+  <div class="grid grid-cols-2 gap-3">
+    <button
+      type="button"
+      id="btn-show-trainee"
+      onclick="switchGoogleForm('trainee')"
+      class="py-3 px-4 rounded-xl font-bold text-sm bg-neonMint text-black transition-all">
+      Trainee Registration
+    </button>
+    <button
+      type="button"
+      id="btn-show-partner"
+      onclick="switchGoogleForm('partner')"
+      class="py-3 px-4 rounded-xl font-bold text-sm bg-black text-zinc-300 border border-white/15 hover:border-neonPink transition-all">
+      Donors &amp; Partners
+    </button>
+  </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label for="fullName" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Full Name *</label>
-                    <input
-                      type="text"
-                      id="fullName"
-                      required
-                      placeholder="e.g., Kato Brian"
-                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white placeholder-zinc-600 focus:outline-none focus:border-neonMint transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Phone / WhatsApp *</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      required
-                      placeholder="+256 7XX XXX XXX"
-                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white placeholder-zinc-600 focus:outline-none focus:border-neonMint transition-colors"
-                    />
-                  </div>
-                </div>
+  <!-- Trainee Form Container -->
+  <div id="embed-trainee" class="w-full rounded-xl overflow-hidden bg-white border border-white/15">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfXQ5MdXgw4dT39RP2c-j5OcHNtTWVHkxBudyTBIoNV0VGjmg/viewform?embedded=true"
+      width="100%"
+      height="950"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      title="Gbreeze UG Arts Trainee Registration Form">
+      Loading trainee form...
+    </iframe>
+  </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label for="location" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">District / Neighborhood *</label>
-                    <input
-                      type="text"
-                      id="location"
-                      required
-                      placeholder="e.g., Makindye, Kampala"
-                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white placeholder-zinc-600 focus:outline-none focus:border-neonMint transition-colors"
-                    />
-                  </div>
+  <!-- Partner / Donor Form Container (Hidden by default) -->
+  <div id="embed-partner" class="hidden w-full rounded-xl overflow-hidden bg-white border border-white/15">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLScGet7fz5_Nqc6-w_gI2RLhC2e63QA4OAULjhGDcFitkpkAjA/viewform?embedded=true"
+      width="100%"
+      height="950"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      title="Gbreeze UG Arts Donors and Partners Form">
+      Loading partner form...
+    </iframe>
+  </div>
 
-                  <!-- Dynamic Select Field -->
-                  <div id="track-select-wrapper">
-                    <label for="programSelect" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Preferred Skilling Track *</label>
-                    <select
-                      id="programSelect"
-                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white focus:outline-none focus:border-neonMint transition-colors"
-                    >
-                      <option value="Digital Music Production & Sound Engineering">Digital Music Production &amp; Sound Engineering</option>
-                      <option value="Graphic Design, Branding & Digital Media">Graphic Design, Branding &amp; Digital Media</option>
-                      <option value="Practical Vocational & Technical Trades">Practical Vocational &amp; Technical Trades</option>
-                      <option value="Driving & Road Safety Training">Driving &amp; Road Safety Training</option>
-                      <option value="Shoe Making & Leather Craft">Shoe Making &amp; Leather Craft</option>
-                      <option value="Soap Making & Household Products">Soap Making &amp; Household Products</option>
-                      <option value="Tailoring, Garment Making & Fashion">Tailoring, Garment Making &amp; Fashion</option>
-                      <option value="Catering, Baking & Event Food Service">Catering, Baking &amp; Event Food Service</option>
-                      <option value="Hair Dressing, Braiding & Beauty Care">Hair Dressing, Braiding &amp; Beauty Care</option>
-                      <option value="Youth Entrepreneurship & Financial Self-Reliance">Youth Entrepreneurship &amp; Financial Self-Reliance</option>
-                    </select>
-                  </div>
+  <!-- Direct New-Tab Fallback Link -->
+  <p class="text-center text-xs text-zinc-400">
+    Having trouble viewing the form above?
+    <a
+      id="fallback-form-link"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSfXQ5MdXgw4dT39RP2c-j5OcHNtTWVHkxBudyTBIoNV0VGjmg/viewform"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-neonMint font-semibold underline hover:text-neonCyan transition-colors">
+      Open Form in a New Tab
+    </a>
+  </p>
+</div>
 
-                  <div id="partner-select-wrapper" class="hidden">
-                    <label for="partnerRole" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">How Would You Like to Help? *</label>
-                    <select
-                      id="partnerRole"
-                      class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white focus:outline-none focus:border-neonPink transition-colors"
-                    >
-                      <option value="Sponsor / Financial Donor">Sponsor / Financial Donor</option>
-                      <option value="Equipment & Toolkit Donor">Equipment &amp; Toolkit Donor</option>
-                      <option value="Skills Mentor / Guest Instructor">Skills Mentor / Guest Instructor</option>
-                      <option value="Community Organization / Local Leader">Community Organization / Local Leader</option>
-                    </select>
-                  </div>
-                </div>
+<script>
+  function switchGoogleForm(type) {
+    const traineeBox = document.getElementById('embed-trainee');
+    const partnerBox = document.getElementById('embed-partner');
+    const btnTrainee = document.getElementById('btn-show-trainee');
+    const btnPartner = document.getElementById('btn-show-partner');
+    const fallbackLink = document.getElementById('fallback-form-link');
 
-                <div>
-                  <label for="message" id="message-label" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
-                    Tell Us About Your Goals &amp; Interest *
-                  </label>
-                  <textarea
-                    id="message"
-                    rows="4"
-                    required
-                    placeholder="Share what motivates you to learn this skill or what you hope to build..."
-                    class="w-full px-4 py-3.5 rounded-xl bg-black border border-white/15 text-white placeholder-zinc-600 focus:outline-none focus:border-neonMint transition-colors"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  id="submit-btn"
-                  class="w-full py-4 rounded-xl bg-neonMint text-black font-bold text-base hover:bg-neonCyan shadow-mint-glow transition-all flex items-center justify-center gap-2"
-                >
-                  <span>Submit Application</span>
-                  <i class="fa-solid fa-paper-plane text-sm"></i>
-                </button>
-              </form>
+    if (type === 'partner') {
+      traineeBox.classList.add('hidden');
+      partnerBox.classList.remove('hidden');
+      btnPartner.className = 'py-3 px-4 rounded-xl font-bold text-sm bg-neonPink text-black transition-all';
+      btnTrainee.className = 'py-3 px-4 rounded-xl font-bold text-sm bg-black text-zinc-300 border border-white/15 hover:border-neonMint transition-all';
+      fallbackLink.href = 'https://docs.google.com/forms/d/e/1FAIpQLScGet7fz5_Nqc6-w_gI2RLhC2e63QA4OAULjhGDcFitkpkAjA/viewform';
+      fallbackLink.className = 'text-neonPink font-semibold underline hover:text-neonCyan transition-colors';
+    } else {
+      partnerBox.classList.add('hidden');
+      traineeBox.classList.remove('hidden');
+      btnTrainee.className = 'py-3 px-4 rounded-xl font-bold text-sm bg-neonMint text-black transition-all';
+      btnPartner.className = 'py-3 px-4 rounded-xl font-bold text-sm bg-black text-zinc-300 border border-white/15 hover:border-neonPink transition-all';
+      fallbackLink.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfXQ5MdXgw4dT39RP2c-j5OcHNtTWVHkxBudyTBIoNV0VGjmg/viewform';
+      fallbackLink.className = 'text-neonMint font-semibold underline hover:text-neonCyan transition-colors';
+    }
+  }
+</script>
 
               <!-- Instant Confirmation Message Box -->
               <div id="form-confirmation" class="hidden text-center py-8 space-y-4">
@@ -1269,4 +1262,5 @@
     });
   </script>
 </body>
+
 </html>
